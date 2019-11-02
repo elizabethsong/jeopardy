@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Elizabeth's Jeopardy App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="lib/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="lib/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+
+  <script src="math.js" type="text/javascript"></script>
+  <link href="bootstrap.css" rel="stylesheet" />
+  <link href="app.css" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body ng-controller= "QuestionsController as vm">
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- ng-view container-->
+  <div class = "container">
+
+    <h1>Welcome to Jeopardy</h1>
+
+    <div ng-show="!vm.isEditing">
+
+      <!--h2>Questions in <js-categories-select empty-text="All Catgories" selectedCategory="vm.query.id"></js-categories-select> </h2>-->
+      <form>
+        <div class="input-group">
+          <span class="input-group-addon">Filter by Category, Difficulty, or Date: </span>
+          <input class="form-control" ng-model="vm.query.category_id" placeholder="Category Id" />
+          <input  class="form-control" ng-model="vm.query.value" placeholder="Difficulty Id" />
+          <input  class="form-control" ng-model="vm.query.airdate" placeholder="Date" />
+        </div>
+      </form>
+      <p>
+        Active Filter: {{vm.query}}
+      </p>
+      <h2>Questions</h2>
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th class="col-sm-1">Id</th>
+          <th class="col-sm-1">Category Id</th>
+          <th class="col-sm-1">Difficulty</th>
+          <th class="col-sm-5">Question</th>
+          <th class="col-sm-3">Answer</th>
+          <th class="col-sm-1">Air Date</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in vm.questions | filter:vm.query | limitTo: vm.pageSize: vm.pageSize * vm.currentPage ">
+          <!--print everything in table-->
+          <td>{{item.id}}</td>
+          <td>{{item.category_id}}</td>
+          <td>{{item.value}}</td>
+          <td>{{item.question}}</td>
+          <td>{{item.answer}}</td>
+          <td>{{(item.airdate | date:'yyyy-MM-dd')}}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <button ng-disabled="vm.currentPage == 0" ng-click="vm.currentPage = vm.currentPage-1">
+        Previous
+      </button>
+      {{vm.currentPage + 1}}/{{ ((vm.questions | filter:vm.query ).length/vm.pageSize) }}
+      <!--{{vm.currentPage+1}}/{{vm.numberOfPages}}-->
+      <button ng-disabled="vm.currentPage >= (vm.questions | filter:vm.query ).length/vm.pageSize - 1" ng-click="vm.currentPage = vm.currentPage+1">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+  <!--<script src="lib/angular/angular.js"></script>-->
+  <!--<script src="lib/angular-route/angular-route.js"></script>
+  <script src="core/version/version.js"></script>
+  <script src="core/version/version-directive.js"></script>
+  <script src="core/version/interpolate-filter.js"></script>-->
+  <script src="core/scripts/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="core/questions/questions.module.js"></script>
+  <script src="core/questions/questions.questionsController.js"></script>
+
+</body>
+</html>

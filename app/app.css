@@ -1,0 +1,40 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+body {
+  margin-top: 60px;
+}
+
+.btn-bottom-margin {
+  margin-bottom: 10px;
+}
+
+.navbar-default .navbar-nav > li > a.active {
+  background-color: #eee;
+}
+.navbar-default .navbar-nav > li > a:hover {
+  background-color: #ccc;
+}
