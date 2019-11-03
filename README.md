@@ -4,7 +4,7 @@ This project is an [AngularJS] web app for Jeopardy.
 URL:  <h ref= "https://jeopardyesong.herokuapp.com/app/index.html">https://jeopardyesong.herokuapp.com/app/index.html</h>
 
 <b>Instructions:</b>
-1. Type in URL above and wait for the page to load (Table should fill up with Jeopardy values).pp
+1. Type in URL above and wait for the page to load (Table should fill up with Jeopardy values).
 2. First box: type in a category ID value (integer)
 3. Second box: type in a difficulty level: 100,200,300,400,500
 4. Third box: type in a minimum date in date format YYYY-MM-DD **PLEASE NOTE: the Jeopardy API call only works when both a minimum and maximum date is inputted
