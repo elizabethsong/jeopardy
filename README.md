@@ -14,7 +14,7 @@ EXAMPLE call: Category ID 7, Difficulty Level 500, DATES 1985-02-08, 1991-10-30
 This was my first time using APIs and learning AngularJS! I had only taken an Intro CS class prior to this but I really enjoyed learning something outside of class and actually doing a real project that people can access online!
 
 Things I learned/features I implemented:
-- Searching for category ID, difficulty level, dates (calls to API every time a search is typed in). Initially, I only made one call and filtered by these categories
+- Searching for category ID, difficulty level, dates (calls to API every time a search is typed in). Initially, I only made one call and filtered by these categories. Then, I learned about Angular watch to detect if property changes, then trigger new Ajax call.
 - How to use APIs/Angular (thanks to many online tutorials and Stack Overflow)
 - Multiple searches so that you can search for category ID AND difficulty level
  
