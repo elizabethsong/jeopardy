@@ -30,14 +30,14 @@
   <!-- ng-view container-->
   <div class = "container">
 
-    <h1>Welcome to Jeopardy</h1>
+    <h1>Welcome to Jeopardy!</h1>
 
     <div ng-show="!vm.isEditing">
 
       <!--h2>Questions in <js-categories-select empty-text="All Catgories" selectedCategory="vm.query.id"></js-categories-select> </h2>-->
       <form>
         <div class="input-group">
-          <span class="input-group-addon">Filter by Category, Difficulty, or Date: </span>
+          <span class="input-group-addon">Search Filter: </span>
           <input class="form-control" ng-model="vm.query.category_id" placeholder="Category Id" />
           <input  class="form-control" ng-model="vm.query.value" placeholder="Difficulty Id" />
           <input  class="form-control" ng-model="vm.query.airdate" placeholder="Date" />
@@ -74,7 +74,8 @@
       <button ng-disabled="vm.currentPage == 0" ng-click="vm.currentPage = vm.currentPage-1">
         Previous
       </button>
-      {{vm.currentPage + 1}}/{{ ((vm.questions | filter:vm.query ).length/vm.pageSize) }}
+          Page: {{vm.currentPage + 1}}
+<!--      {{vm.currentPage + 1}}/{{ ((vm.questions | filter:vm.query ).length/vm.pageSize) }}-->
       <!--{{vm.currentPage+1}}/{{vm.numberOfPages}}-->
       <button ng-disabled="vm.currentPage >= (vm.questions | filter:vm.query ).length/vm.pageSize - 1" ng-click="vm.currentPage = vm.currentPage+1">
         Next
