@@ -21,7 +21,7 @@
 
 
         function init() {
-            $http.get("http://jservice.io/api/clues")
+            $http.get("https://cors-anywhere.herokuapp.com/http://jservice.io/api/clues")
                 .success(function (data) {
                     vm.questions = data;
                 })
